@@ -32,3 +32,30 @@ const stillNeedsLinks = placeholderLinks.some((link) => {
   return false;
 });
 if (warning && !stillNeedsLinks) warning.hidden = true;
+
+// Active navigation state based on scroll position
+const sections = [...document.querySelectorAll("main section[id]")];
+const navAnchors = [...document.querySelectorAll(".nav-links a[href^='#']")];
+if (sections.length && navAnchors.length) {
+  const map = new Map();
+  navAnchors.forEach((a) => {
+    const id = a.getAttribute("href").slice(1);
+    map.set(id, a);
+  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.id;
+        const link = map.get(id);
+        if (link) {
+          if (entry.isIntersecting) {
+            navAnchors.forEach((a) => a.classList.remove("active"));
+            link.classList.add("active");
+          }
+        }
+      });
+    },
+    { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+  );
+  sections.forEach((sec) => observer.observe(sec));
+}
