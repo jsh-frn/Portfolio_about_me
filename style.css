@@ -319,3 +319,12 @@ h2 { font-size: clamp(32px, 4vw, 46px); line-height: 1.16; letter-spacing: -2px;
 /* ---- Project card labels above decorative layers ---- */
 .project-art > .art-label { position: relative; z-index: 2; }
 .project-art > .art-footer { z-index: 2; }
+
+/* ---- Project thumbnail header row ---- */
+.art-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 0 0 10px; position: relative; z-index: 2; }
+.art-header .art-label { position: static; padding: 0; }
+.art-badge { font: 600 9px "DM Sans", sans-serif; color: #426b54; background: #eaf0ea; border-radius: 999px; padding: 4px 8px; white-space: nowrap; }
+
+/* ---- Zombie thumbnail header inside game scene ---- */
+.game-scene .art-header { position: absolute; top: 18px; left: 18px; right: 18px; z-index: 2; }
+.game-scene .art-header .art-label { position: static; }
