@@ -308,6 +308,6 @@ h2 { font-size: clamp(32px, 4vw, 46px); line-height: 1.16; letter-spacing: -2px;
 .design-art img { position: static; width: 100%; height: auto; max-height: 420px; object-fit: contain; display: block; background: #f2f2ef; border-radius: 8px; }
 .project-art .art-label, .project-art .art-footer { position: relative; z-index: 1; }
 
-/* ---- Portfolio profile photo ---- */
-.profile-photo { width: 100%; max-width: 220px; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); margin-bottom: 18px; display: block; }
-@media (max-width: 640px) { .profile-photo { max-width: 160px; } }
+/* ---- Portfolio profile photo (replaces monogram) ---- */
+.profile-photo { display: block; width: 190px; height: 190px; margin: 20px auto 18px; border-radius: 50%; object-fit: cover; border: 1px solid #c7d4c9; }
+@media (max-width: 850px) { .profile-photo { width: 145px; height: 145px; } }
