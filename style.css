@@ -301,3 +301,7 @@ h2 { font-size: clamp(32px, 4vw, 46px); line-height: 1.16; letter-spacing: -2px;
   .profile-photo-placeholder { max-width: 140px; }
 }
 
+
+/* ---- Design project preview images ---- */
+.project-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.project-art .art-label, .project-art .art-footer { position: relative; z-index: 1; }
