@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f5">
+  <meta name="description" content="Salwana — inventory, finance, reservation and marketplace app.">
+  <title>Salwana | Joshua Frian Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Joshua Frian home">JF<span>.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">
+        <span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#learning">Learning</a>
+        <a class="nav-contact" href="index.html#contact">Contact <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+<!-- Salwana detailed project presentation -->
+    <section class="section container" id="salwana">
+      <a class="back-link" href="index.html#projects">← Back to projects</a>
+      <div class="project-detail">
+        <div class="project-detail-header">
+          <div class="project-detail-badge personal">Personal application</div>
+          <h2>Salwana</h2>
+          <p class="project-detail-tagline">Inventory management, merchant finance tracking, product reservation, and online marketplace for small and medium-sized merchants.</p>
+          <div class="project-detail-actions">
+            <a class="button button-accent" href="https://salwana-web.onrender.com/#/onboarding" target="_blank" rel="noopener noreferrer">Live Demo <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="https://github.com/JoshuaFrianEmpestan/SalwanaApp" target="_blank" rel="noopener noreferrer">View Source Code <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="project-detail-grid">
+          <div class="project-detail-main">
+            <div class="detail-block">
+              <h3>Project introduction</h3>
+              <p>Salwana is an inventory management, merchant finance tracking, product reservation, and online marketplace application designed for small and medium-sized merchants. It is a personal application I developed end to end.</p>
+            </div>
+            <div class="detail-block">
+              <h3>Problem it aims to solve</h3>
+              <p>Small and medium-sized merchants often manage inventory, finances, orders, and reservations with fragmented or manual tools. Salwana brings these workflows together into one application, covering catalog and inventory, suppliers and restocking, orders, reservations, payments, and merchant finance.</p>
+            </div>
+            <div class="detail-block">
+              <h3>Application purpose</h3>
+              <p>The purpose of Salwana is to give merchants a single, role-based platform to run their day-to-day operations — from stocking and selling products to tracking money, handling reservations, and serving consumers through an online marketplace — while supporting suppliers and administrators in the same system.</p>
+            </div>
+            <div class="detail-block">
+              <h3>Main features</h3>
+              <p>The application is feature-complete across 16 build-order modules, implemented end to end against real Cloud Functions and Firestore:</p>
+              <ul class="feature-list feature-list-compact">
+                <li>Authentication and role-based access control</li>
+                <li>Catalog and inventory management</li>
+                <li>Supplier and restocking management</li>
+                <li>Orders and order status tracking</li>
+                <li>Product reservations</li>
+                <li>Payments (GCash and Maya simulated flows, plus Cash on Delivery)</li>
+                <li>Reviews and ratings</li>
+                <li>Consumer discovery and marketplace browsing</li>
+                <li>Merchant finance tracking</li>
+                <li>Notifications (push via Firebase Cloud Messaging)</li>
+                <li>Dashboards and analytics</li>
+                <li>Subscriptions</li>
+                <li>Reports and export (PDF, Excel)</li>
+                <li>Administration panel</li>
+                <li>Barcode / QR scanning</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <h3>Supported user roles</h3>
+              <div class="role-grid">
+                <div class="role-card"><strong>Consumer</strong><p>Browses the marketplace, places orders, makes reservations, and leaves reviews.</p></div>
+                <div class="role-card"><strong>Merchant</strong><p>Manages inventory and catalog, finances, orders, reservations, and subscriptions.</p></div>
+                <div class="role-card"><strong>Supplier</strong><p>Handles supply and restocking workflows with merchants.</p></div>
+                <div class="role-card"><strong>Administrator</strong><p>Oversees the platform through the admin panel, reports, and analytics.</p></div>
+              </div>
+              <p class="detail-note">Each role has its own dashboard, navigation, and permissions.</p>
+            </div>            <div class="detail-block">
+              <h3>Technologies and architecture</h3>
+              <p><strong>Client:</strong> Flutter (Dart SDK ^3.3.0), with Riverpod for state management and go_router for routing.</p>
+              <p><strong>Cloud backend (Firebase):</strong> Firebase Authentication, Cloud Firestore, Firebase Storage, Firebase Cloud Functions, and Firebase Cloud Messaging.</p>
+              <p><strong>Supporting libraries:</strong> google_fonts, shimmer, cached_network_image, fl_chart, flutter_svg, intl, uuid, connectivity_plus, shared_preferences, image_picker, qr_flutter, mobile_scanner, pdf, printing, excel, path_provider, share_plus, flutter_local_notifications, url_launcher, http.</p>
+              <p><strong>Architecture:</strong></p>
+              <ul class="feature-list feature-list-compact">
+                <li><code>lib/core</code> — theme, shared widgets, router, Riverpod providers, utils</li>
+                <li><code>lib/models</code> — one file per Firestore entity (mirrors <code>firestore.rules</code>)</li>
+                <li><code>lib/features/{auth,consumer,merchant,supplier,admin}</code> — one folder per role/module, each with <code>data/</code> (repositories) and <code>presentation/</code> (screens)</li>
+                <li><code>functions/src</code> — Cloud Functions grouped by module</li>
+                <li><code>firestore.rules</code>, <code>storage.rules</code>, <code>firestore.indexes.json</code> — backend security and indexing</li>
+              </ul>
+              <p><strong>Responsive and adaptive UI:</strong> grids compute column counts from available width (2 on phones, 3 on tablets, 4 on desktop), navigation switches between a bottom bar and a side NavigationRail, and forms are capped at a readable width. Firestore persistence keeps the app usable offline, with an app-wide offline banner.</p>
+            </div>
+            <div class="detail-block">
+              <h3>My contribution</h3>
+              <p>Salwana is a personal application I developed. I am the sole author of the repository and implemented the full stack described above.</p>
+            </div>
+            <div class="detail-block">
+              <h3>Links</h3>
+              <div class="project-detail-actions">
+                <a class="button button-accent" href="https://salwana-web.onrender.com/#/onboarding" target="_blank" rel="noopener noreferrer">Live Demo <span aria-hidden="true">↗</span></a>
+                <a class="button button-outline" href="https://github.com/JoshuaFrianEmpestan/SalwanaApp" target="_blank" rel="noopener noreferrer">View Source Code <span aria-hidden="true">↗</span></a>
+              </div>
+              <p class="detail-note">The live demo runs the web build. Payments (GCash and Maya) are simulated flows; Cash on Delivery is a real order-status path.</p>
+            </div>
+          </div>
+          <aside class="project-detail-aside">
+            <div class="detail-card">
+              <div class="salwana-preview" aria-hidden="true">
+                <span>Salwana</span>
+                <small>Flutter · Firebase</small>
+              </div>
+              <dl class="detail-meta">
+                <div><dt>Type</dt><dd>Personal application</dd></div>
+                <div><dt>Version</dt><dd>1.0.0+1</dd></div>
+                <div><dt>Roles</dt><dd>4 user roles</dd></div>
+                <div><dt>Modules</dt><dd>16 implemented</dd></div>
+              </dl>
+            </div>
+            <div class="detail-card">
+              <h4>Screenshots</h4>
+              <p class="detail-note">Screenshots of the live application can be captured and added here. The live demo link above opens the running app.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner"><a class="brand" href="index.html">JF<span>.</span></a><p>Designed and built by Joshua Frian.</p><a href="index.html#projects">← Back to projects</a></div>
+    <div class="container copyright"><span>© <span id="year">2026</span> Joshua Frian</span><span>Built with HTML, CSS & JavaScript</span></div>
+  </footer>
+</body>
+</html>
