@@ -119,7 +119,7 @@ carousels.forEach((carousel) => {
 
   function start() {
     if (reduced) return;
-    timer = setInterval(next, 4000);
+    timer = setInterval(next, 6500);
   }
   function stop() { if (timer) { clearInterval(timer); timer = null; } }
   function restart() { stop(); start(); }
