@@ -315,3 +315,7 @@ h2 { font-size: clamp(32px, 4vw, 46px); line-height: 1.16; letter-spacing: -2px;
 
 /* ---- Active nav state ---- */
 .nav-links a.active { color: var(--accent); font-weight: 700; }
+
+/* ---- Project card labels above decorative layers ---- */
+.project-art > .art-label { position: relative; z-index: 2; }
+.project-art > .art-footer { z-index: 2; }
