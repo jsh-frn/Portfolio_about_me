@@ -80,3 +80,55 @@ if (!prefersReduced) {
 } else {
   revealItems.forEach((el) => el.classList.add("is-visible"));
 }
+
+// Image carousels
+const carousels = [...document.querySelectorAll("[data-carousel]")];
+carousels.forEach((carousel) => {
+  const track = carousel.querySelector(".carousel-track");
+  const slides = [...track.querySelectorAll("img")];
+  const prevBtn = carousel.querySelector(".carousel-prev");
+  const nextBtn = carousel.querySelector(".carousel-next");
+  const dotsWrap = carousel.querySelector(".carousel-dots");
+  if (!slides.length) return;
+
+  let index = 0;
+  let timer = null;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // build dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+    dot.setAttribute("aria-label", "Go to image " + (i + 1));
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = [...dotsWrap.querySelectorAll(".carousel-dot")];
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    track.style.transform = "translateX(-" + index * 100 + "%)";
+    dots.forEach((d, di) => d.classList.toggle("active", di === index));
+  }
+  function next() { goTo(index + 1); }
+  function prev() { goTo(index - 1); }
+
+  nextBtn.addEventListener("click", () => { next(); restart(); });
+  prevBtn.addEventListener("click", () => { prev(); restart(); });
+
+  function start() {
+    if (reduced) return;
+    timer = setInterval(next, 4000);
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function restart() { stop(); start(); }
+
+  carousel.addEventListener("mouseenter", stop);
+  carousel.addEventListener("mouseleave", start);
+  carousel.addEventListener("focusin", stop);
+  carousel.addEventListener("focusout", start);
+
+  goTo(0);
+  start();
+});

@@ -131,8 +131,20 @@
         </div>
         <div class="project-grid">
           <article class="project-card project-featured project-featured-academic">
-            <div class="project-art transync-art" aria-hidden="true">
-              <img src="assets/images/transync/transync-cover.png" alt="TranSync app screenshot" loading="lazy" onload="this.parentElement.classList.add('has-image')">
+            <div class="project-art transync-art has-carousel" aria-hidden="true">
+              <div class="project-carousel" data-carousel>
+                <div class="carousel-track">
+                  <img src="assets/images/transync/transync-cover.png" alt="TranSync cover screen" loading="lazy">
+                  <img src="assets/images/transync/transync-commuter-home.png.png" alt="TranSync commuter home" loading="lazy">
+                  <img src="assets/images/transync/transync-routes.png" alt="TranSync routes" loading="lazy">
+                  <img src="assets/images/transync/transync-booking.png" alt="TranSync booking" loading="lazy">
+                  <img src="assets/images/transync/transync-driver-dashboard.png" alt="TranSync driver dashboard" loading="lazy">
+                  <img src="assets/images/transync/transync-operator-dashboard.png.png" alt="TranSync operator dashboard" loading="lazy">
+                </div>
+                <button class="carousel-btn carousel-prev" type="button" aria-label="Previous screenshot">&#8249;</button>
+                <button class="carousel-btn carousel-next" type="button" aria-label="Next screenshot">&#8250;</button>
+                <div class="carousel-dots" aria-hidden="true"></div>
+              </div>
               <div class="art-header">
                 <div class="art-label">ACADEMIC CAPSTONE</div>
                 <div class="art-badge">Featured</div>
