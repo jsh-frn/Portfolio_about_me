@@ -404,3 +404,6 @@ body { font-feature-settings: "ss01"; }
 
 .nav-resume { color: #fff !important; background: var(--accent); border-radius: 999px; padding: 9px 15px; }
 .nav-resume:hover { background: #1d4ed8; }
+
+.project-art.has-image > :not(img) { opacity: 0; pointer-events: none; }
+.project-art.has-image img { z-index: 0; }
