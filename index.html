@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f7f5">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      } catch (e) {}
+    })();
+  </script>
   <meta name="description" content="Portfolio of Joshua Frian D. Empestan, an IT student and aspiring Full-Stack & Mobile Application Developer. Showcasing academic and personal projects including Salwana and TranSync.">
   <meta name="author" content="Joshua Frian D. Empestan">
   <title>Joshua Frian D. Empestan | IT Student & Developer</title>

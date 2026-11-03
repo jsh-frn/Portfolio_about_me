@@ -135,3 +135,19 @@ carousels.forEach((carousel) => {
   goTo(0);
   start();
 });
+
+// Dark mode toggle
+const themeToggle = document.querySelector("#themeToggle");
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  try { localStorage.setItem("theme", theme); } catch (e) {}
+  if (themeToggle) themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+}
+if (themeToggle) {
+  const current = document.documentElement.getAttribute("data-theme") || "light";
+  applyTheme(current);
+  themeToggle.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+  });
+}
