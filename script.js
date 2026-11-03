@@ -86,6 +86,7 @@ const carousels = [...document.querySelectorAll("[data-carousel]")];
 carousels.forEach((carousel) => {
   const track = carousel.querySelector(".carousel-track");
   const slides = [...track.querySelectorAll("img")];
+  const backdrop = carousel.querySelector(".carousel-backdrop");
   const prevBtn = carousel.querySelector(".carousel-prev");
   const nextBtn = carousel.querySelector(".carousel-next");
   const dotsWrap = carousel.querySelector(".carousel-dots");
@@ -109,6 +110,7 @@ carousels.forEach((carousel) => {
   function goTo(i) {
     index = (i + slides.length) % slides.length;
     track.style.transform = "translateX(-" + index * 100 + "%)";
+    if (backdrop) backdrop.src = slides[index].src;
     dots.forEach((d, di) => d.classList.toggle("active", di === index));
   }
   function next() { goTo(index + 1); }
@@ -129,6 +131,7 @@ carousels.forEach((carousel) => {
   carousel.addEventListener("focusin", stop);
   carousel.addEventListener("focusout", start);
 
+  if (backdrop) backdrop.src = slides[0].src;
   goTo(0);
   start();
 });
